@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import java.util.concurrent.ThreadLocalRandom
 
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +35,6 @@ class MainActivity : AppCompatActivity() {
         val pickdebug2: TextView = findViewById(R.id.debugpick2)
         val pickdebug3: TextView = findViewById(R.id.debugpick3)
 
-
-
         val randnumber1 = ThreadLocalRandom.current().nextInt(100)
         val randnumber2 = ThreadLocalRandom.current().nextInt(100)
         val randnumber3 = ThreadLocalRandom.current().nextInt(100)
@@ -48,7 +45,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             overridePendingTransition(0, 0)
         }
-
 
         start.setOnClickListener {
             start.isEnabled = false
@@ -84,11 +80,8 @@ class MainActivity : AppCompatActivity() {
                     //pickdebug1.text = number
                     //for debug purposes
                 }
-
                 override fun onStartTrackingTouch(seekBar: SeekBar) {
-
                 }
-
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
                     pickOne.isEnabled = false
 
@@ -116,7 +109,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar) {
-
                 }
 
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
@@ -147,7 +139,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar) {
-
                 }
 
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
@@ -170,11 +161,6 @@ class MainActivity : AppCompatActivity() {
             })
 
         }
-
-
-
-
-
 
     }
 }
