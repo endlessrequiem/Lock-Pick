@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">lockpick</string>
+    <string name="newgame">New Game</string>
+    <string name="gamestart">Start</string>
+    <string name="youLose">You Lose!</string>
+    <string name="correct">Correct!</string>
+    <string name="winner">Winner!</string>
+</resources>
