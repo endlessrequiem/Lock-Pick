@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         val start: Button = findViewById(R.id.startbutton)
         val newGame: Button = findViewById(R.id.newgame)
+        newGame.isEnabled = false
 
         val pickOne: SeekBar = findViewById(R.id.seek1)
         val pickTwo: SeekBar = findViewById(R.id.seek2)
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         start.setOnClickListener {
             start.isEnabled = false
+            newGame.isEnabled = true
 
             combo1.text = randnumber1.toString()
             combo2.text = randnumber2.toString()
@@ -67,7 +69,6 @@ class MainActivity : AppCompatActivity() {
                     pickOne.isEnabled = false
                     pickTwo.isEnabled = false
                     pickThree.isEnabled = false
-
                 }
             }.start()
 
@@ -81,19 +82,16 @@ class MainActivity : AppCompatActivity() {
                     //for debug purposes
                 }
                 override fun onStartTrackingTouch(seekBar: SeekBar) {
+                    //nothing to do here
                 }
+
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
                     pickOne.isEnabled = false
 
                     if (randnumber1 == pickOne.progress) {
                         pickdebug1.text = getString(R.string.correct)
                     } else {
-                        countDown.cancel()
-
-                        time.text = getString(R.string.youLose)
-                        pickOne.isEnabled = false
-                        pickTwo.isEnabled = false
-                        pickThree.isEnabled = false
+                        lose(countDown, time, pickOne, pickTwo, pickThree)
                     }
 
                 }
@@ -109,6 +107,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar) {
+                    //nothing to do here
+
                 }
 
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
@@ -117,12 +117,8 @@ class MainActivity : AppCompatActivity() {
                     if (randnumber2 == pickTwo.progress) {
                         pickdebug2.text = getString(R.string.correct)
                     } else {
-                        countDown.cancel()
+                        lose(countDown, time, pickOne, pickTwo, pickThree)
 
-                        time.text = getString(R.string.youLose)
-                        pickOne.isEnabled = false
-                        pickTwo.isEnabled = false
-                        pickThree.isEnabled = false
                     }
 
                 }
@@ -139,6 +135,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onStartTrackingTouch(seekBar: SeekBar) {
+                    //nothing to do here
+
                 }
 
                 override fun onStopTrackingTouch(seekBar: SeekBar) {
@@ -149,12 +147,7 @@ class MainActivity : AppCompatActivity() {
                         pickdebug3.text = getString(R.string.correct)
                         time.text = getString(R.string.winner)
                     } else {
-                        countDown.cancel()
-
-                        time.text = getString(R.string.youLose)
-                        pickOne.isEnabled = false
-                        pickTwo.isEnabled = false
-                        pickThree.isEnabled = false
+                        lose(countDown, time, pickOne, pickTwo, pickThree)
                     }
 
                 }
@@ -162,5 +155,14 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    private fun lose(countDown: CountDownTimer, time: TextView, pickOne: SeekBar, pickTwo: SeekBar, pickThree: SeekBar) {
+        countDown.cancel()
+
+        time.text = getString(R.string.youLose)
+        pickOne.isEnabled = false
+        pickTwo.isEnabled = false
+        pickThree.isEnabled = false
     }
 }

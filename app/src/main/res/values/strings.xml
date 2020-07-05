@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">lockpick</string>
+    <string name="app_name">Pick The Lock</string>
     <string name="newgame">New Game</string>
     <string name="gamestart">Start</string>
     <string name="youLose">You Lose!</string>
