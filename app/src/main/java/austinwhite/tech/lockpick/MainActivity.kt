@@ -41,10 +41,8 @@ class MainActivity : AppCompatActivity() {
         val randnumber3 = ThreadLocalRandom.current().nextInt(100)
 
         newGame.setOnClickListener {
-            finish()
-            overridePendingTransition(0, 0)
-            startActivity(intent)
-            overridePendingTransition(0, 0)
+            newGame.isEnabled = false
+            restart()
         }
 
         start.setOnClickListener {
@@ -164,5 +162,13 @@ class MainActivity : AppCompatActivity() {
         pickOne.isEnabled = false
         pickTwo.isEnabled = false
         pickThree.isEnabled = false
+
+    }
+
+    private fun restart() {
+        finish()
+        startActivity(intent)
+        overridePendingTransition(0, 0)
+
     }
 }
